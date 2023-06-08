@@ -1,5 +1,6 @@
 package Medium;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class BlackjackProbability {
@@ -35,8 +36,28 @@ public class BlackjackProbability {
 
     }
 
-    private static float blackjackProbability(int target, int startingHand) {
+    public static float blackjackProbability(int target, int startingHand) {
+        HashMap<Integer, Float> memo = new HashMap<Integer, Float>();
 
-        return 20.22f;
+        return Math.round(calculateProbability(target, startingHand, memo) * 1000f) / 1000f;
+    }
+
+    private static float calculateProbability(int target, int currentHand, HashMap<Integer, Float> memo) {
+        if(memo.containsKey(currentHand)){
+            return memo.get(currentHand);
+        }
+        if(currentHand > target){
+            return 1;
+        }
+        if(currentHand +4 >= target){
+            return 0;
+        }
+
+        float totalProbability = 0;
+        for(int i = 1; i<=10; i++){
+            totalProbability += 0.1 * calculateProbability(target,currentHand + i, memo);
+        }
+        memo.put(currentHand, totalProbability);
+        return totalProbability;
     }
 }
