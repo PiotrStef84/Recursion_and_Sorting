@@ -12,10 +12,48 @@ public class BubbleSort {
         int[] expected = {2, 3, 5, 5, 6, 8, 9};
         int[] input = {8, 5, 2, 9, 5, 6, 3};
 
-        bubbleSort(input);
+        // second input to check second algorithm
+        int[] input2 = {8, 5, 2, 9, 5, 6, 3};
 
+        bubbleSortA(input2);
+        bubbleSort(input);
+        System.out.println("------------- College Solution ---------------");
         System.out.println(Arrays.toString(expected));
         System.out.println(Arrays.toString(input));
+
+        System.out.println("------------- Algo Solution ---------------");
+        System.out.println(Arrays.toString(expected));
+        System.out.println(Arrays.toString(input2));
+    }
+
+
+    // Best: O(n) time | O(1) space ... best case when we receive already sorted array
+    // Average: 0(n^2) time | O(1) space
+    // Worst: O(n^2) time | O(1) space
+    private static void bubbleSortA(int[] array) {
+        boolean swap = false;
+        int sortedCounter = 0;
+
+        // deducting a sorted counter, as after each iteration we are certain that last element
+        // is sorted.
+
+        while(!swap){
+            swap = true;
+            for(int i = 0; i< array.length - 1 - sortedCounter; i++){
+                if(array[i] > array[i +1]){
+                    swap(i, i+1, array);
+                    swap = false;
+                }
+            }
+            sortedCounter++;
+        }
+
+    }
+
+    public static void swap(int i, int j, int[] array ){
+        int temp = array[j];
+        array[j] = array[i];
+        array[i] = temp;
     }
 
     // Bubble sort algorithm as learned in college
@@ -44,6 +82,7 @@ public class BubbleSort {
         System.out.println("number of comparisons "+compare);
         System.out.println("number of swaps       "+swap);
 
-
     }
+
+
 }
