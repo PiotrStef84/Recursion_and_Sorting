@@ -1,11 +1,23 @@
 package Sorting.Easy;
 
+import java.util.Arrays;
+
 public class InsertionSort {
+
+    public static void main(String[] args) {
+
+        int[] expected = {2, 3, 4, 5, 5, 6, 8, 9};
+        int[] input = {8, 5, 2, 9, 5, 6, 3, 4};
+
+        insertionSort(input);
+        System.out.println(Arrays.toString(input));
+
+    }
 
     public InsertionSort() {}
 
     // Insertion sort as learned in college
-    public void insertionSort(int[] array) {
+    public static void insertionSort(int[] array) {
         int swap = 0;
         int compare = 0;
         int unsortedValue;  // The first unsorted value
