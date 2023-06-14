@@ -16,6 +16,14 @@ public class InsertionSort {
 
     public InsertionSort() {}
 
+    public static int [] insertionSortA(int[] array) {
+        if(array.length == 0){
+            return new int[] {};
+        }
+
+        return array;
+    }
+
     // Insertion sort as learned in college
     public static void insertionSort(int[] array) {
         int swap = 0;
