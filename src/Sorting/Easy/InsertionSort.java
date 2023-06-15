@@ -12,16 +12,37 @@ public class InsertionSort {
         insertionSort(input);
         System.out.println(Arrays.toString(input));
 
+        int[] input2 = {8, 5, 2, 9, 5, 6, 3, 4};
+
+        insertionSortA(input2);
+        System.out.println(Arrays.toString(input2));
+
+
+
     }
 
+    // Best: O(n) time | O(1) space
+    // Average: O(n^2) time | O(1) space
+    // Worst: O(n^2) time | O(1) space
     public InsertionSort() {}
 
-    public static int [] insertionSortA(int[] array) {
-        if(array.length == 0){
-            return new int[] {};
+    public static void insertionSortA(int[] array) {
+
+        for(int i =0; i< array.length; i++){
+            int j = i;
+            while(j > 0 && array[j] < array[j - 1]){
+                swap(j, j-1, array);
+                j--;
+            }
         }
 
-        return array;
+    }
+
+    public static void swap(int j, int i, int[] array){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+
     }
 
     // Insertion sort as learned in college
