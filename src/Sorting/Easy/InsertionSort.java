@@ -1,5 +1,6 @@
 package Sorting.Easy;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class InsertionSort {
@@ -9,14 +10,15 @@ public class InsertionSort {
         int[] expected = {2, 3, 4, 5, 5, 6, 8, 9};
         int[] input = {8, 5, 2, 9, 5, 6, 3, 4};
 
+        System.out.println("-------- Collage ------------");
         insertionSort(input);
         System.out.println(Arrays.toString(input));
 
-        int[] input2 = {8, 5, 2, 9, 5, 6, 3, 4};
+        int[] input2 = {8, 5, 2, 9, 5, 1, 56, 2, 6, 3, 4, 15};
 
+        System.out.println("------------ Algo ------------");
         insertionSortA(input2);
         System.out.println(Arrays.toString(input2));
-
 
 
     }
@@ -24,7 +26,6 @@ public class InsertionSort {
     // Best: O(n) time | O(1) space
     // Average: O(n^2) time | O(1) space
     // Worst: O(n^2) time | O(1) space
-    public InsertionSort() {}
 
     public static void insertionSortA(int[] array) {
 
